@@ -8,8 +8,8 @@ export default defineConfig({
   root: ".", // Root directory
   publicDir: "public", // Static assets directory
   // Base path for GitHub Pages - change this to your repository name
-  // For example, if your repo is username.github.io/docs-noodleseed, use '/docs-noodleseed/'
-  base: '/docs-noodleseed/',
+  // For example, if your repo is username.github.io/noodle-docs, use '/noodle-docs/'
+  base: '/noodle-docs/',
   server: {
     open: false,
     port: 4173,
