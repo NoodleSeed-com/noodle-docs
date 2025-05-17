@@ -1,0 +1,69 @@
+/* Layout styles */
+.doc-site {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.doc-layout {
+  display: flex;
+  flex: 1;
+}
+
+.doc-content {
+  flex: 1;
+  padding: var(--space-6);
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+.doc-footer {
+  padding: var(--space-4) var(--space-6);
+  background-color: var(--color-muted);
+  color: var(--color-secondary);
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+/* Adjust the layout for pages with right panels */
+.with-right-panel {
+  display: grid;
+  grid-template-columns: 1fr 240px;
+  gap: var(--space-6);
+}
+
+/* Hide the sidebar toggle button on desktop */
+.sidebar-toggle-button {
+  display: none;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+  .doc-content {
+    padding: var(--space-4);
+  }
+  
+  .with-right-panel {
+    grid-template-columns: 1fr 200px;
+    gap: var(--space-4);
+  }
+}
+
+@media (max-width: 768px) {
+  .doc-layout {
+    flex-direction: column;
+  }
+  
+  .doc-content {
+    padding: var(--space-3);
+  }
+  
+  .with-right-panel {
+    display: block;
+  }
+  
+  /* Show the sidebar toggle button on mobile */
+  .sidebar-toggle-button {
+    display: flex;
+  }
+}
