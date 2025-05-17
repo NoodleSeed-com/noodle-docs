@@ -155,7 +155,7 @@ const NoodleGuidePage = () => {
                   marginTop: "1.5rem" 
                 }}>
                   <p>
-                    <strong>Ready to dive deeper?</strong> Check out our <a href="/blog/5" style={{ color: "var(--color-primary)" }}>Expert Guide</a> based on Hassan's projects to learn advanced techniques for efficient development with NoodleSeed.
+                    <strong>Ready to dive deeper?</strong> Check out our <a href="/case-studies/5" style={{ color: "var(--color-primary)" }}>Expert Guide</a> based on Hassan's projects to learn advanced techniques for efficient development with NoodleSeed.
                   </p>
                 </div>
               </div>

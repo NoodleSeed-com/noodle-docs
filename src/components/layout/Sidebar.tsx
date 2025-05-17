@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { blogArticles } from "../../data/blog";
+import { caseStudies } from "../../data/caseStudies";
 import { changelogEntries } from "../../data/changelog";
 import "./sidebar.css";
 
@@ -53,8 +53,8 @@ const academyNavItems = [
   }
 ];
 
-// Filter blog articles to only include FlexiClean and Advanced Techniques
-const filteredBlogArticles = blogArticles.filter(article => 
+// Filter case studies to only include FlexiClean and Advanced Techniques
+const filteredCaseStudies = caseStudies.filter(article => 
   article.title.includes("FlexiClean") || article.title.includes("Advanced")
 );
 
@@ -65,7 +65,7 @@ const Sidebar = () => {
   // Determine which main section is active based on the current path
   const isAcademyActive = location.pathname.includes("academy");
   const isChangelogActive = location.pathname.includes("changelog");
-  const isBlogActive = location.pathname.includes("blog");
+  const isCaseStudiesActive = location.pathname.includes("case-studies");
   
   // Toggle section expansion
   const toggleSection = (sectionId: string) => {
@@ -160,24 +160,24 @@ const Sidebar = () => {
           )}
         </div>
         
-        {/* Blog Section */}
+        {/* Case Studies Section */}
         <div className="sidebar-category">
           <div 
-            className={`sidebar-category-title ${isBlogActive ? 'active' : ''}`}
-            onClick={() => toggleSection('blog')}
+            className={`sidebar-category-title ${isCaseStudiesActive ? 'active' : ''}`}
+            onClick={() => toggleSection('case-studies')}
           >
-            <span>Blog</span>
+            <span>Case Studies</span>
             <span className="sidebar-toggle-icon">
-              {isSectionExpanded('blog') ? '▼' : '▶'}
+              {isSectionExpanded('case-studies') ? '▼' : '▶'}
             </span>
           </div>
           
-          {isSectionExpanded('blog') && (
+          {isSectionExpanded('case-studies') && (
             <ul className="sidebar-item-list">
-              {filteredBlogArticles.map((article) => (
+              {filteredCaseStudies.map((article) => (
                 <li key={article.id} className="sidebar-item">
                   <Link 
-                    to={`/blog/${article.id}`}
+                    to={`/case-studies/${article.id}`}
                     className="sidebar-link"
                   >
                     {article.title}

@@ -1,26 +1,26 @@
 import React, { useState, useEffect, useRef } from "react";
 import { useParams, Link } from "react-router-dom";
-import { blogArticles } from "../data/blog";
-import "./blog.css";
+import { caseStudies } from "../data/caseStudies";
+import "./caseStudies.css";
 
-const BlogPostPage = () => {
+const CaseStudyPage = () => {
   const { id } = useParams<{ id: string }>();
-  const blogId = parseInt(id || "0");
+  const caseStudyId = parseInt(id || "0");
   const [activeSection, setActiveSection] = useState<string>("");
   const headingRefs = useRef<{ [key: string]: HTMLHeadingElement | null }>({});
   
-  // Find the blog post with the matching ID
-  const blogPost = blogArticles.find(article => article.id === blogId);
+  // Find the case study with the matching ID
+  const caseStudy = caseStudies.find(article => article.id === caseStudyId);
   
   // Generate table of contents from headings
   const [tableOfContents, setTableOfContents] = useState<{ id: string; text: string }[]>([]);
   
-  // Extract headings from blog post content when it loads
+  // Extract headings from case study content when it loads
   useEffect(() => {
-    if (blogPost?.content) {
+    if (caseStudy?.content) {
       // We'll populate this in the next render after the content is loaded
       setTimeout(() => {
-        const headings = document.querySelectorAll('.blog-content-wrapper h2');
+        const headings = document.querySelectorAll('.case-study-content-wrapper h2');
         const toc: { id: string; text: string }[] = [];
         
         headings.forEach((heading, index) => {
@@ -33,7 +33,7 @@ const BlogPostPage = () => {
         setTableOfContents(toc);
       }, 100);
     }
-  }, [blogPost]);
+  }, [caseStudy]);
   
   // Set up intersection observer to track which section is in view
   useEffect(() => {
@@ -69,17 +69,17 @@ const BlogPostPage = () => {
     document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
   };
   
-  // If no matching blog post is found, show a message
-  if (!blogPost) {
+  // If no matching case study is found, show a message
+  if (!caseStudy) {
     return (
       <div className="doc-container">
         <div style={{ textAlign: "center", marginTop: "4rem" }}>
-          <h1 className="page-title">Blog Post Not Found</h1>
+          <h1 className="page-title">Case Study Not Found</h1>
           <p style={{ fontSize: "1.125rem", color: "var(--color-secondary)", marginBottom: "2rem" }}>
-            The blog post you're looking for doesn't exist.
+            The case study you're looking for doesn't exist.
           </p>
-          <Link to="/blog" style={{ color: "var(--color-primary)", fontWeight: 500 }}>
-            ← Back to Blog
+          <Link to="/case-studies" style={{ color: "var(--color-primary)", fontWeight: 500 }}>
+            ← Back to Case Studies
           </Link>
         </div>
       </div>
@@ -89,21 +89,21 @@ const BlogPostPage = () => {
   return (
     <div className="doc-container">
       <div style={{ marginBottom: "2rem" }}>
-        <Link to="/blog" style={{ color: "var(--color-primary)", fontWeight: 500, display: "inline-flex", alignItems: "center", gap: "0.5rem" }}>
-          ← Back to Blog
+        <Link to="/case-studies" style={{ color: "var(--color-primary)", fontWeight: 500, display: "inline-flex", alignItems: "center", gap: "0.5rem" }}>
+          ← Back to Case Studies
         </Link>
       </div>
       
-      <div className="blog-layout">
-        {/* Left Column - Other Blog Posts */}
-        <div className="blog-nav">
-          <h3 className="blog-nav-title">More Articles</h3>
-          <ul className="blog-nav-list">
-            {blogArticles.map((article) => (
-              <li key={article.id} className="blog-nav-item">
+      <div className="case-study-layout">
+        {/* Left Column - Other Case Studies */}
+        <div className="case-study-nav">
+          <h3 className="case-study-nav-title">More Case Studies</h3>
+          <ul className="case-study-nav-list">
+            {caseStudies.map((article) => (
+              <li key={article.id} className="case-study-nav-item">
                 <Link 
-                  to={`/blog/${article.id}`} 
-                  className={`blog-nav-link ${article.id === blogId ? 'active' : ''}`}
+                  to={`/case-studies/${article.id}`} 
+                  className={`case-study-nav-link ${article.id === caseStudyId ? 'active' : ''}`}
                 >
                   {article.title}
                 </Link>
@@ -113,21 +113,21 @@ const BlogPostPage = () => {
         </div>
         
         {/* Middle Column - Content */}
-        <div className="blog-content">
-          {/* If the blog post has custom content, render it */}
-          {blogPost.content ? (
-            <article className="blog-post">
-              {blogPost.content}
+        <div className="case-study-content">
+          {/* If the case study has custom content, render it */}
+          {caseStudy.content ? (
+            <article className="case-study-post">
+              {caseStudy.content}
             </article>
           ) : (
             /* Otherwise, render a default layout */
-            <article className="blog-post">
-              <h1 className="page-title">{blogPost.title}</h1>
+            <article className="case-study-post">
+              <h1 className="page-title">{caseStudy.title}</h1>
               <div style={{ display: "flex", justifyContent: "space-between", color: "var(--color-secondary)", marginBottom: "2rem" }}>
-                <span>{blogPost.author}</span>
-                <span>{blogPost.date}</span>
+                <span>{caseStudy.author}</span>
+                <span>{caseStudy.date}</span>
               </div>
-              <p>{blogPost.excerpt}</p>
+              <p>{caseStudy.excerpt}</p>
               <div style={{ marginTop: "2rem", padding: "2rem", backgroundColor: "var(--color-muted)", borderRadius: "0.5rem", textAlign: "center" }}>
                 <p>Full content coming soon!</p>
               </div>
@@ -136,14 +136,14 @@ const BlogPostPage = () => {
         </div>
         
         {/* Right Column - Table of Contents */}
-        <div className="blog-toc">
-          <h3 className="blog-toc-title">Table of Contents</h3>
+        <div className="case-study-toc">
+          <h3 className="case-study-toc-title">Table of Contents</h3>
           {tableOfContents.length > 0 ? (
-            <ul className="blog-toc-list">
+            <ul className="case-study-toc-list">
               {tableOfContents.map((item) => (
                 <li 
                   key={item.id} 
-                  className={`blog-toc-item ${activeSection === item.id ? 'active' : ''}`}
+                  className={`case-study-toc-item ${activeSection === item.id ? 'active' : ''}`}
                   onClick={() => scrollToSection(item.id)}
                 >
                   {item.text}
@@ -151,7 +151,7 @@ const BlogPostPage = () => {
               ))}
             </ul>
           ) : (
-            <p className="blog-toc-empty">No sections available</p>
+            <p className="case-study-toc-empty">No sections available</p>
           )}
         </div>
       </div>
@@ -159,4 +159,4 @@ const BlogPostPage = () => {
   );
 };
 
-export default BlogPostPage;
+export default CaseStudyPage;

@@ -35,12 +35,12 @@ const HomePage = () => {
       
       <div className="content-grid" style={{ marginTop: "2rem" }}>
         <div className="card card-highlight">
-          <h2 className="section-title">Featured Articles</h2>
+          <h2 className="section-title">Case Studies</h2>
           <p style={{ marginBottom: "1rem", color: "var(--color-secondary)" }}>
             Discover tips, tutorials, and best practices for using Noodle Seed effectively.
           </p>
-          <Link to="/blog" style={{ color: "var(--color-primary)", fontWeight: 500 }}>
-            Explore blog →
+          <Link to="/case-studies" style={{ color: "var(--color-primary)", fontWeight: 500 }}>
+            Explore case studies →
           </Link>
         </div>
         

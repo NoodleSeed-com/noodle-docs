@@ -32,10 +32,10 @@ const Navbar = () => {
             <NavigationMenu.Item>
               <NavigationMenu.Link asChild>
                 <Link 
-                  to="/blog" 
+                  to="/case-studies" 
                   className={cn("nav-link")}
                 >
-                  Blog
+                  Case Studies
                 </Link>
               </NavigationMenu.Link>
             </NavigationMenu.Item>

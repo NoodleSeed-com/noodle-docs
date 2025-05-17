@@ -1,5 +1,7 @@
-// Blog article content type
-export type BlogArticle = {
+import React from 'react';
+
+// Case Study content type
+export type CaseStudy = {
   id: number;
   title: string;
   excerpt: string;
@@ -8,7 +10,7 @@ export type BlogArticle = {
   content?: React.ReactNode;
 };
 
-export const blogArticles: BlogArticle[] = [
+export const caseStudies: CaseStudy[] = [
   {
     id: 5,
     title: "Maximizing Your Noodle Seed Experience: Expert Guide Based on Hassan's Projects",
@@ -17,11 +19,11 @@ export const blogArticles: BlogArticle[] = [
     author: "Noodle Seed Team",
     content: (
       <>
-        <div className="blog-hero">
-          <div className="blog-hero-content">
+        <div className="case-study-hero">
+          <div className="case-study-hero-content">
             <h1>Maximizing Your Noodle Seed Experience: Expert Guide Based on Hassan's Projects</h1>
-            <div className="blog-meta-large">
-              <div className="blog-meta-item">
+            <div className="case-study-meta-large">
+              <div className="case-study-meta-item">
                 <strong>Analysis:</strong> Hassan Iftikhar's Noodle Seed Projects
               </div>
               <div className="blog-meta-item">
@@ -32,14 +34,14 @@ export const blogArticles: BlogArticle[] = [
               </div>
             </div>
             
-            <blockquote className="blog-quote">
+            <blockquote className="case-study-quote">
               "By following these expert strategies, you'll be able to create sophisticated applications more efficiently, with fewer revisions and better results."
               <cite>— Noodle Seed Team</cite>
             </blockquote>
           </div>
         </div>
         
-        <div className="blog-content-wrapper">
+        <div className="case-study-content-wrapper">
           <h2>Introduction</h2>
           <p>
             Having analyzed Hassan Iftikhar's extensive work on both the Sports Highlights Video Generator (57 versions) and the more complex Noodle HR Interface Design (89 versions), we've refined this guide to help new users achieve professional-quality results efficiently.
@@ -49,7 +51,7 @@ export const blogArticles: BlogArticle[] = [
           <p>
             Start with a clear architectural vision:
           </p>
-          <ul className="blog-list">
+          <ul className="case-study-list">
             <li>Define not just what you want to build, but how the pieces fit together</li>
             <li>Identify major components and their relationships</li>
             <li>Establish a consistent design language early (colors, spacing, visual elements)</li>
@@ -71,7 +73,7 @@ export const blogArticles: BlogArticle[] = [
             <li>Test continuously: Validate each component works before building dependencies</li>
           </ul>
           
-          <blockquote className="blog-quote">
+          <blockquote className="case-study-quote">
             "Hassan perfected the sidebar and header before working on the dashboard, then methodically built each major feature area (People Hub, Time Management, etc.) to completion."
             <cite>— From analysis of the Noodle HR project</cite>
           </blockquote>
@@ -207,11 +209,11 @@ export const blogArticles: BlogArticle[] = [
     author: "Noodle Seed Team",
     content: (
       <>
-        <div className="blog-hero">
-          <div className="blog-hero-content">
+        <div className="case-study-hero">
+          <div className="case-study-hero-content">
             <h1>How FlexiClean Streamlines Operations and Saves $49,500+ Annually with NoodleSeed</h1>
-            <div className="blog-meta-large">
-              <div className="blog-meta-item">
+            <div className="case-study-meta-large">
+              <div className="case-study-meta-item">
                 <strong>Company:</strong> FlexiClean
               </div>
               <div className="blog-meta-item">
@@ -228,14 +230,14 @@ export const blogArticles: BlogArticle[] = [
               </div>
             </div>
             
-            <blockquote className="blog-quote">
+            <blockquote className="case-study-quote">
               "With NoodleSeed handling our custom management system, we're saving over $49,500 annually while significantly improving our operational efficiency."
               <cite>— Hector Quintero, Sales Director at FlexiClean</cite>
             </blockquote>
           </div>
         </div>
         
-        <div className="blog-content-wrapper">
+        <div className="case-study-content-wrapper">
           <h2>The Build-or-Buy Challenge</h2>
           <p>
             For FlexiClean, a growing commercial and residential cleaning company based in Edinburgh with operations expanding throughout Scotland and London, job tracking and invoice management had become both a logistical and financial burden.
@@ -247,7 +249,7 @@ export const blogArticles: BlogArticle[] = [
             When exploring custom solutions through traditional development agencies, the quoted upfront cost was prohibitively high—plus an estimated six months of implementation time with no guarantee the solution would meet their specific needs.
           </p>
           
-          <blockquote className="blog-quote">
+          <blockquote className="case-study-quote">
             "Before [NoodleSeed], we had multiple systems that didn't talk to each other. Our staff were spending hours each week on manual data entry, and clients were getting frustrated with delays in invoicing."
             <cite>— Hector Quintero, Sales Director at FlexiClean</cite>
           </blockquote>
@@ -266,7 +268,7 @@ export const blogArticles: BlogArticle[] = [
           <p>
             The team worked together to create a comprehensive system that would:
           </p>
-          <ul className="blog-list">
+          <ul className="case-study-list">
             <li>Track cleaning staff via QR code scanning at client locations</li>
             <li>Generate automated job reports and performance metrics</li>
             <li>Create and dispatch invoices directly from the field</li>
@@ -289,7 +291,7 @@ export const blogArticles: BlogArticle[] = [
           <p>
             The development cycle looked like this:
           </p>
-          <ol className="blog-list">
+          <ol className="case-study-list">
             <li>Department heads would explain their workflows and pain points</li>
             <li>The co-founder would use Noodle Agent to create functional interfaces in real-time</li>
             <li>Staff would provide immediate feedback on usability and features</li>
@@ -421,7 +423,7 @@ export const blogArticles: BlogArticle[] = [
             For service businesses facing similar build-or-buy decisions, the FlexiClean case presents a compelling alternative: partner with NoodleSeed to create solutions that truly bridge the gap between business needs and technical implementation, resulting in systems that deliver exactly what users need without the traditional costs and timelines.
           </p>
           
-          <div className="blog-cta">
+          <div className="case-study-cta">
             <p>P.S. Check out FlexiClean's professional cleaning services: <a href="https://mdcflexiclean.co.uk/services" target="_blank" rel="noopener noreferrer">https://mdcflexiclean.co.uk/services</a></p>
           </div>
         </div>
